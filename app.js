@@ -5,6 +5,15 @@ window.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("archivo");
     const visor = document.getElementById("visor");
 
+    visor.addEventListener("model-loaded", () => {
+        console.log("MODELO CARGADO");
+    });
+    
+    visor.addEventListener("model-error", (e) => {
+        console.log("ERROR CARGANDO MODELO");
+        console.log(e.detail);
+    });
+
     console.log("input:", input);
     console.log("visor:", visor);
 
