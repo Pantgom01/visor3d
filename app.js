@@ -22,9 +22,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    visor.addEventListener("model-loaded", () => {
-        console.log("Nuevo script cargado");
-        console.log("Modelo cargado");
+    visor.addEventListener("model-loaded", (e) => {
+    console.log(e);
+
+    console.log("Object3D:", visor.object3D);
+
+    console.log("Mesh:", visor.getObject3D("mesh"));
 
         const objeto = visor.getObject3D("mesh");
 
