@@ -18,51 +18,16 @@ window.addEventListener("DOMContentLoaded", () => {
         urlActual = URL.createObjectURL(archivo);
 
         visor.setAttribute("gltf-model", urlActual);
+        visor.object3D.position.set(0,0,0);
+        visor.object3D.rotation.set(0,0,0);
+        visor.object3D.scale.set(1,1,1);
+        visor.setAttribute("visible", true);
         visor.setAttribute("visible", true);
 
     });
 
     visor.addEventListener("model-loaded", (e) => {
-    console.log(e);
-
-    console.log("Object3D:", visor.object3D);
-
-    console.log("Mesh:", visor.getObject3D("mesh"));
-
-        const objeto = visor.getObject3D("mesh");
-
-        if (!objeto) {
-            console.log("No existe mesh");
-            return;
-        }
-
-        // Caja envolvente
-        const caja = new THREE.Box3().setFromObject(objeto);
-
-        const tamaño = new THREE.Vector3();
-        caja.getSize(tamaño);
-
-        console.log("Tamaño:", tamaño);
-
-        const centro = new THREE.Vector3();
-        caja.getCenter(centro);
-
-        console.log("Centro:", centro);
-
-        // Centrar el modelo
-        objeto.position.sub(centro);
-
-        // Calcular el mayor lado
-        const mayor = Math.max(tamaño.x, tamaño.y, tamaño.z);
-
-        console.log("Mayor lado:", mayor);
-
-        // Queremos que mida unos 10 cm
-        const escala = 0.10 / mayor;
-
-        console.log("Escala:", escala);
-
-        objeto.scale.setScalar(escala);
+       console.log("MODELO CARGADO");
 
     });
 
