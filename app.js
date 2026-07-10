@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     visor.addEventListener("model-loaded", () => {
-
+        console.log("Nuevo script cargado");
         console.log("Modelo cargado");
 
         const objeto = visor.getObject3D("mesh");
