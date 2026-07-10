@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     const input = document.getElementById("archivo");
-    const asset = document.getElementById("modelo");
     const visor = document.getElementById("visor");
 
     let urlActual = null;
@@ -18,11 +17,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
         urlActual = URL.createObjectURL(archivo);
 
-        asset.setAttribute("src", urlActual);
+        visor.setAttribute("gltf-model", urlActual);
+        visor.setAttribute("visible", true);
 
-        visor.setAttribute("visible", "true");
-
-        console.log("Modelo cargado");
+        console.log(urlActual);
 
     });
 
